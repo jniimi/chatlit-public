@@ -1,6 +1,8 @@
-# ChatLit
+# ChatreamLit
 
 A unified multi-LLM chatbot interface built with Streamlit that allows you to interact with ChatGPT, Claude, and Gemini models in a single application.
+
+Try me on Streamlit: URL is shown after deployment
 
 ## Features
 
@@ -33,7 +35,7 @@ A unified multi-LLM chatbot interface built with Streamlit that allows you to in
 
 1. Clone this repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/jniimi/chatlit-public
 cd chatlit-public
 ```
 
