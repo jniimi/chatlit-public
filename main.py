@@ -4,6 +4,12 @@ from anthropic import Anthropic
 import streamlit as st
 from llm_clients import get_response_chatgpt, get_response_claude, get_response_gemini
 
+st.set_page_config(
+    page_title="ChatreamLit App",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 if "initialized" not in st.session_state:
     st.session_state['api'] = {'openai': '', 'google': '', 'anthropic': ''}
     st.session_state['client'] = {}
