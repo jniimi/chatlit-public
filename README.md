@@ -1,5 +1,6 @@
-[![DOI](https://zenodo.org/badge/1047702328.svg)](https://doi.org/10.5281/zenodo.17010449)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://zenodo.org/badge/1047702328.svg)](https://doi.org/10.5281/zenodo.17010449)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://multillms.streamlit.app/)
 
 # ChatreamLit
 
