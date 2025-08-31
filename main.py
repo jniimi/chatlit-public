@@ -100,7 +100,7 @@ with button_container:
             st.html("<script>window.scrollTo(0, document.body.scrollHeight);</script>")
             st.rerun()
 
-# Fill messages placeholder with chat history and handle new messages
+# Fill messages placeholder with chat and handle new messages
 with messages_placeholder.container():
     # Display existing messages
     for msg in st.session_state.messages:
@@ -134,12 +134,6 @@ with messages_placeholder.container():
                     st.session_state.messages.append({"role": "assistant", "content": msg})
                     st.chat_message("assistant").write(msg)
                     
-                    # Save conversation to history
-                    st.session_state['history_manager'].save_conversation(
-                        st.session_state['current_session_id'],
-                        st.session_state.messages,
-                        st.session_state['selected_model']
-                    )
                 except Exception as e:
                     st.error(f"Error getting response from {st.session_state['selected_model']}: {str(e)}")
 
