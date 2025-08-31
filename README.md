@@ -44,28 +44,26 @@ cd chatlit-public
 pip install -r requirements.txt
 ```
 
-3. Fill your API keys in the sidebar
+3. Launch the app
+```bash
+streamlit run main.app
+```
 
 ## Usage
 
-1. Run the Streamlit application:
+1. Browser automatically launches after running the app:
 ```bash
 streamlit run main.py
 ```
+if not, hit `http://localhost:8501` on your browser.
 
-2. Open your browser to the displayed URL (typically `http://localhost:8501`)
+2. Enter your API keys in the sidebar for each platform
 
-3. Enter your API keys in the sidebar
+3. Select your preferred models from the dropdowns
 
-4. Select your preferred models from the dropdowns
+4. Select one of the model buttons (ChatGPT, Claude, or Gemini)
 
-5. Select one of the model buttons (ChatGPT, Claude, or Gemini)
-
-6. Start chatting!
-
-## API Keys
-
-Enter keys directly in the sidebar text fields
+5. Start chatting! You can switch the platforms and models anytime!
 
 ## Project Structure
 
