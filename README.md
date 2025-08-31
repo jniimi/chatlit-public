@@ -72,7 +72,6 @@ Enter keys directly in the sidebar text fields
 - `main.py`: Main Streamlit application with UI and session management
 - `llm_clients.py`: API client functions for each LLM service
 - `requirements.txt`: Python dependencies
-- `CLAUDE.md`: Development guidelines for Claude Code
 
 ## License
 
