@@ -2,7 +2,11 @@
 
 A unified multi-LLM chatbot interface built with Streamlit that allows you to interact with ChatGPT, Claude, and Gemini models in a single application.
 
-Try me on Streamlit: URL is shown after deployment
+![Chat Image](chat.png)
+
+## Streamlit Demo
+Try me on Streamlit: [https://multillms.streamlit.app/](https://multillms.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://multillms.streamlit.app/)
 
 ## Features
 
