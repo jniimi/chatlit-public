@@ -15,9 +15,10 @@ if "messages" not in st.session_state:
     st.session_state["messages"] = []
 
 with st.sidebar:
+    st.header("⚙️ API")
     openai_api_key = st.text_input("OpenAI API Key", key="key1", type="password")
-    google_api_key = st.text_input("Google API Key", key="key2", type="password")
     anthropic_api_key = st.text_input("Anthropic API Key", key="key3", type="password")
+    google_api_key = st.text_input("Google API Key", key="key2", type="password")
 
     st.divider()
     st.header("⚙️ Settings")
@@ -50,13 +51,13 @@ if st.session_state['api']['openai'] != openai_api_key:
     st.session_state['api']['openai'] = openai_api_key
     st.session_state['client']['openai'] = OpenAI(api_key=openai_api_key)
 
-if st.session_state['api']['google'] != google_api_key:
-    st.session_state['api']['google'] = google_api_key
-    st.session_state['client']['google'] = genai.configure(api_key=google_api_key)
-
 if st.session_state['api']['anthropic'] != anthropic_api_key:
     st.session_state['api']['anthropic'] = anthropic_api_key
     st.session_state['client']['anthropic'] = Anthropic(api_key=anthropic_api_key)
+
+if st.session_state['api']['google'] != google_api_key:
+    st.session_state['api']['google'] = google_api_key
+    st.session_state['client']['google'] = genai.configure(api_key=google_api_key)
 
 
 
@@ -117,12 +118,16 @@ with messages_placeholder.container():
             with st.spinner(f"Getting response from {st.session_state['selected_model'].title()}..."):
                 try:
                     if st.session_state['selected_model'] == "chatgpt":
-                        msg = get_response_chatgpt(prompt, st.session_state.messages, 
-                                                st.session_state['client']['openai'], model_id_gpt)
+                        if st.session_state['api']['openai']=='':
+                            st.error(f"OPENAI API Key is not specified")
+                        msg = get_response_chatgpt(prompt, st.session_state.messages, st.session_state['client']['openai'], model_id_gpt)
                     elif st.session_state['selected_model'] == "claude":
-                        msg = get_response_claude(prompt, st.session_state.messages, 
-                                                st.session_state['client']['anthropic'], model_id_claude)
+                        if st.session_state['api']['anthropic']=='':
+                            st.error(f"Anthropic API Key is not specified")
+                        msg = get_response_claude(prompt, st.session_state.messages, st.session_state['client']['anthropic'], model_id_claude)
                     elif st.session_state['selected_model'] == "gemini":
+                        if st.session_state['api']['google']=='':
+                            st.error(f"Google API Key is not specified")
                         msg = get_response_gemini(prompt, st.session_state.messages, model_id_gemini)
                         if 'assistant:' in msg:
                             msg = msg.split('assistant:')[1]
