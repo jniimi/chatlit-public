@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/1047702328.svg)](https://doi.org/10.5281/zenodo.17010449)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # ChatreamLit
 
 A unified multi-LLM chatbot interface built with Streamlit that allows you to interact with ChatGPT, Claude, and Gemini models in a single application.
