@@ -79,7 +79,7 @@ messages_placeholder = st.empty()
 # User Input (chat_input placed here)
 submission_container = st.container()
 with submission_container:
-    prompt = st.chat_input()
+    prompt = st.chat_input(accept_file=True, file_type=["pdf", "txt"])
 
 # Model Select
 button_container = st.container()
@@ -114,7 +114,11 @@ with messages_placeholder.container():
         st.chat_message(msg["role"]).write(msg["content"])
     
     # Process new input if there is any
+    files = None
     if prompt:
+        if not isinstance(prompt, str):
+            files  = prompt['files']
+            prompt = prompt['text']
         if st.session_state['selected_model'] is None:
             st.warning("Please select a model (ChatGPT, Claude, or Gemini) before sending a message.")
         else:
@@ -126,7 +130,7 @@ with messages_placeholder.container():
                     if st.session_state['selected_model'] == "chatgpt":
                         if st.session_state['api']['openai']=='':
                             st.error(f"OPENAI API Key is not specified")
-                        msg = get_response_chatgpt(prompt, st.session_state.messages, st.session_state['client']['openai'], model_id_gpt)
+                        msg = get_response_chatgpt(prompt, st.session_state.messages, st.session_state['client']['openai'], model_id_gpt, files=files)
                     elif st.session_state['selected_model'] == "claude":
                         if st.session_state['api']['anthropic']=='':
                             st.error(f"Anthropic API Key is not specified")
