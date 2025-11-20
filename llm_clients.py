@@ -1,7 +1,16 @@
 import google.generativeai as genai
 
 
-def get_response_chatgpt(prompt, messages, client, model_id):
+def get_response_chatgpt(prompt, messages, client, model_id, files):
+    """Get response from ChatGPT"""
+    messages.append({"role": "user", "content": prompt})
+    response = client.chat.completions.create(
+        model=model_id, 
+        messages=messages
+    )
+    return response.choices[0].message.content
+
+def _get_response_chatgpt(prompt, messages, client, model_id):
     """Get response from ChatGPT"""
     messages.append({"role": "user", "content": prompt})
     response = client.chat.completions.create(
